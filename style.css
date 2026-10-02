@@ -63,7 +63,17 @@ h1, h2, h3, h4 { margin: 0; font-weight: 600; }
 /* Layout */
 main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
-.hero { padding: 96px 0 56px; }
+.hero {
+  padding: 96px 0 56px;
+  display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: center;
+}
+.hero-text { grid-row: 1; grid-column: 1; }
+.portrait {
+  grid-row: 1; grid-column: 2;
+  width: 100%; height: auto; aspect-ratio: 1; object-fit: cover;
+  border-radius: 50%; border: 1px solid var(--line);
+  box-shadow: 0 0 0 8px var(--surface), 0 0 0 9px var(--line);
+}
 .eyebrow { color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 20px; }
 .hero h1 { font: 400 clamp(48px, 9vw, 96px)/0.98 var(--serif); letter-spacing: -0.02em; }
 .role { font: 500 18px var(--sans); color: var(--accent); margin: 24px 0 0; }
@@ -139,7 +149,9 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 @media (max-width: 760px) {
   .topbar nav { display: none; }
   .topbar { justify-content: space-between; }
-  .hero { padding: 56px 0 40px; }
+  .hero { padding: 40px 0 40px; grid-template-columns: 1fr; gap: 28px; }
+  .portrait { grid-column: 1; width: 120px; }
+  .hero-text { grid-row: 2; }
   .lede { font-size: 17px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stats div, .stats div + div { padding: 20px 12px; border-left: 0; }
@@ -159,7 +171,8 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
   :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --line: #ccc; --accent: #1f4e5f; }
   .topbar, .hero .cta, .foot { display: none; }
   body { font-size: 11pt; }
-  .hero { padding: 0 0 16px; }
+  .hero { padding: 0 0 16px; grid-template-columns: 1fr 120px; gap: 24px; }
+  .portrait { box-shadow: none; }
   .hero h1 { font-size: 36pt; }
   .block { padding-top: 24px; break-inside: avoid-page; }
   .org, .edu li { break-inside: avoid; }
