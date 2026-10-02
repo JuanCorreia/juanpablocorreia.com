@@ -145,6 +145,33 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 .contact .cta { margin-top: 20px; }
 .foot { max-width: 960px; margin: 96px auto 0; padding: 24px 16px 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
 
+/* Projects */
+.section-lede { color: var(--muted); margin: -16px 0 24px; max-width: 60ch; }
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.card {
+  display: flex; flex-direction: column; gap: 6px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 22px; text-decoration: none; transition: border-color .15s;
+}
+a.card:hover { border-color: var(--accent); }
+.card h4 { font: 600 18px var(--serif); }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.card .link { margin-top: auto; padding-top: 8px; color: var(--accent); font-size: 14px; font-weight: 500; }
+.tag { color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Writing */
+.book { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center; margin-bottom: 28px; }
+.book-cover {
+  aspect-ratio: 2 / 3; border-radius: 4px 10px 10px 4px;
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #000));
+  color: var(--accent-ink); display: flex; align-items: flex-end; padding: 14px;
+  box-shadow: inset 6px 0 0 rgba(0,0,0,.18), 0 10px 24px rgba(0,0,0,.18);
+}
+.book-cover span { font: 600 15px/1.2 var(--serif); }
+.book h3 { font: 600 24px var(--serif); margin: 6px 0 8px; }
+.book p { margin: 0; color: var(--muted); max-width: 55ch; }
+.pubs { border-top: 1px solid var(--line); padding-top: 16px; }
+
 /* Responsive */
 @media (max-width: 760px) {
   .topbar nav { display: none; }
@@ -160,7 +187,9 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
   .org { grid-template-columns: 1fr; gap: 16px; }
   .r-head { flex-direction: column; gap: 0; }
   .edu li { grid-template-columns: 1fr; gap: 2px; }
-  .skills { grid-template-columns: 1fr; }
+  .skills, .projects { grid-template-columns: 1fr; }
+  .book { grid-template-columns: 96px 1fr; gap: 18px; }
+  .book-cover span { font-size: 11px; }
   .block { padding-top: 56px; }
 }
 
@@ -175,7 +204,8 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
   .portrait { box-shadow: none; }
   .hero h1 { font-size: 36pt; }
   .block { padding-top: 24px; break-inside: avoid-page; }
-  .org, .edu li { break-inside: avoid; }
+  .org, .edu li, .card, .book { break-inside: avoid; }
+  .card .link { display: none; }
   .btn { border: 0; padding: 0; min-height: 0; background: none; color: #000; }
   .btn.primary { background: none; color: #000; }
 }
