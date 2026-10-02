@@ -8,7 +8,7 @@ const PT = {
   "role.pres": "Presidente da Direção",
   "role.pres.d": "Lidera, em regime de voluntariado, uma Instituição Particular de Solidariedade Social (IPSS) com creche, educação pré-escolar e intervenção precoce na infância em Silves. Conduziu a sua transformação digital com software de gestão feito à medida.",
   "book.tag": "Livro · Autor",
-  "book.d": "Um livro sobre vendas — escrito a partir de duas décadas a vender software, a criar equipas comerciais e a abrir mercados internacionais.",
+  "book.d": "Um manual prático para quem quer começar nas vendas do zero — o que é preciso para fazer a primeira venda, e os hábitos que levam a todas as que vêm depois.",
   "pub.tforum": "Artigo aceite no t-FORUM 2020",
   "print": "Imprimir / PDF",
   "present": "atual",
