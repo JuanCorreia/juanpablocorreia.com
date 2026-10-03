@@ -19,7 +19,8 @@ const PT = {
   "book.meta": "Português · 6 capítulos · 93 páginas",
   "order.cta": "Encomende já",
   "order.title": "Encomendar o livro",
-  "order.lede": "Deixe os seus dados e eu respondo pessoalmente com o preço e a forma de entrega.",
+  "order.lede": "25 € por exemplar. Deixe os seus dados e eu respondo pessoalmente para combinar a entrega.",
+  "order.total": "Total",
   "order.name": "Nome",
   "order.email": "Email",
   "order.phone": "Telefone (opcional)",
@@ -101,6 +102,7 @@ setLang(initial);
 document.getElementById("year").textContent = new Date().getFullYear();
 
 // Book orders — emailed via FormSubmit (static site, no backend).
+const PRICE = 25;
 const ORDER_TO = "juan.correia@gmail.com";
 const ORDER_MSG = {
   en: { missing: "Please fill in your name and a valid email.", sending: "Sending…",
@@ -120,6 +122,10 @@ const setStatus = (text, cls) => { statusEl.textContent = text; statusEl.classNa
 document.querySelectorAll("[data-order]").forEach(b => b.addEventListener("click", () => {
   setStatus(""); sendBtn.hidden = false; dlg.showModal();
 }));
+const totalEl = document.getElementById("order-total");
+const copies = () => Math.max(1, parseInt(form.elements.copies.value, 10) || 1);
+form.elements.copies.addEventListener("input", () => { totalEl.textContent = copies() * PRICE + " €"; });
+form.addEventListener("reset", () => setTimeout(() => { totalEl.textContent = PRICE + " €"; }));
 dlg.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => dlg.close()));
 dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
 
@@ -143,7 +149,8 @@ form.addEventListener("submit", async e => {
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         ...data,
-        _subject: "Encomenda — A Primeira Venda do Resto da Tua Vida (" + data.copies + ")",
+        total: copies() * PRICE + " €",
+        _subject: "Encomenda — A Primeira Venda do Resto da Tua Vida (" + data.copies + " × 25 €)",
         _replyto: data.email,
         _template: "table"
       })

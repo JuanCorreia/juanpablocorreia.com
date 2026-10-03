@@ -185,6 +185,9 @@ a.card:hover { border-color: var(--accent); }
 .btn { cursor: pointer; font-family: inherit; color: inherit; }
 .btn.primary { color: var(--accent-ink); }
 .book-meta { color: var(--muted); font-size: 13px; }
+.price { font: 600 26px/1 var(--serif); }
+.order-total { margin: 0; display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.order-total strong { font: 600 22px var(--serif); color: var(--ink); }
 .pubs { border-top: 1px solid var(--line); padding-top: 16px; }
 
 /* Order dialog */
