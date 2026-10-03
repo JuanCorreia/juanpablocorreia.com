@@ -33,7 +33,7 @@ const PT = {
   "role.sap.d": "Projetos de implementação de ERP em empresas portuguesas, seguidos de gestão de conta técnico-comercial.",
   "org.ualg": "Universidade do Algarve",
   "role.prof": "Professor Adjunto Convidado",
-  "role.prof.d": "Lecionou Métodos de Decisão, Tecnologias de Informação, Empreendedorismo e Inovação e Economia Digital na Faculdade de Economia. Orientou dissertações de mestrado em turismo, banca e smart cities.",
+  "role.prof.d": "Lecionou Métodos de Decisão, Tecnologias de Informação, Empreendedorismo e Inovação e Economia Digital na Faculdade de Economia. Orientou nove dissertações de mestrado, todas aprovadas, em temas como turismo, banca e smart cities.",
   "org.ventures": "Empresas",
   "cofounder": "Cofundador",
   "cto": "Cofundador, CTO e Data Scientist",
