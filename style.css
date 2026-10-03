@@ -127,6 +127,12 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 .r-head time { color: var(--muted); font-size: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .roles p { margin: 6px 0 0; color: var(--muted); max-width: 60ch; }
 
+a.ext { text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .2s; }
+a.ext::after { content: "↗"; font: 400 .7em var(--sans); color: var(--muted); margin-left: .25em; vertical-align: .35em; }
+a.ext:hover { background-size: 100% 1px; }
+a.ext:hover::after { color: var(--accent); }
+@media print { a.ext::after { content: none; } }
+
 /* Education */
 .edu { list-style: none; margin: 0; padding: 0; }
 .edu li { display: grid; grid-template-columns: 80px 1fr; gap: 24px; padding: 16px 0; border-top: 1px solid var(--line); }

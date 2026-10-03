@@ -39,7 +39,7 @@ const PT = {
   "stats.teaching": "anos de docência na UAlg",
   "stats.qren": "projetos financiados aprovados — 5 QREN + 5 PRR",
   "role.ceo": "Chief Executive Officer",
-  "role.ceo.d": "Lidera o grupo Host: estratégia, crescimento e direção de produto em tecnologia de gestão hoteleira — PMS, pagamentos integrados e a plataforma de formação Host Campus.",
+  "role.ceo.d": "Lidera a Host — software hoteleiro feito para durar, presente em mais de 2.000 propriedades, em mais de 15 mercados e com mais de 400 integrações certificadas. Define a estratégia, o crescimento e a direção de produto de uma suite hoteleira completa: PMS, POS, experiência do hóspede, motor de reservas e channel manager, analytics e as plataformas de formação Host Academy e Host Campus.",
   "role.cfo.d": "Liderança financeira do grupo.",
   "role.rel": "Gestor da relação Host–Algardata",
   "role.rel.d": "Responsável pelos negócios nacionais e internacionais entre a Host e a Algardata; levantamento, definição e gestão de projetos de implementação de plataformas tecnológicas.",
