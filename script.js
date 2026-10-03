@@ -6,7 +6,7 @@ const PT = {
   "nav.contact": "Contacto",
   "nav.writing": "Publicações",
   "role.pres": "Presidente da Direção",
-  "role.pres.d": "Lidera, em regime de voluntariado, uma Instituição Particular de Solidariedade Social (IPSS) com creche, educação pré-escolar e intervenção precoce na infância em Silves. Conduziu a sua transformação digital com software de gestão feito à medida.",
+  "role.pres.d": "Lidera, em regime de voluntariado, uma Instituição Particular de Solidariedade Social (IPSS) com creche, educação pré-escolar e intervenção precoce na infância em Silves. Elaborou cinco candidaturas ao PRR — todas aprovadas — e conduziu a sua transformação digital com software de gestão feito à medida.",
   "book.tag": "Livro · Autor",
   "book.d": "Um manual prático para quem quer começar nas vendas do zero — o que é preciso para fazer a primeira venda, e os hábitos que levam a todas as que vêm depois.",
   "pub.tforum": "Artigo aceite no t-FORUM 2020",
