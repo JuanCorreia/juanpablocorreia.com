@@ -1,5 +1,17 @@
 // English is the inline default; PT strings live here.
 const PT = {
+  "city.lis": "Lisboa",
+  "city.lon": "Londres",
+  "city.rak": "Marraquexe",
+  "city.nyc": "Nova Iorque",
+  "nav.world": "Mundo",
+  "world.d": "Cidades onde prestei apoio e liderei equipas, parceiros e projetos — com Portugal como base.",
+  "world.cities": "cidades",
+  "world.continents": "continentes",
+  "reg.eu": "Europa",
+  "reg.am": "Américas",
+  "reg.af": "África",
+  "reg.me": "Médio Oriente",
   "nav.experience": "Experiência",
   "nav.education": "Formação",
   "nav.skills": "Competências",
@@ -100,6 +112,15 @@ if (!initial) initial = (navigator.language || "").toLowerCase().startsWith("pt"
 setLang(initial);
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Map arcs draw in when the map scrolls into view.
+const map = document.querySelector(".map");
+if (map && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { map.classList.add("in"); io.disconnect(); }
+  }), { threshold: 0.3 });
+  io.observe(map);
+} else if (map) map.classList.add("in");
 
 // Book orders — emailed via FormSubmit (static site, no backend).
 const PRICE = 25;
