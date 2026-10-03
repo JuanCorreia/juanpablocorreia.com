@@ -1,5 +1,6 @@
 // English is the inline default; PT strings live here.
 const PT = {
+  "city.svq": "Sevilha",
   "city.lis": "Lisboa",
   "city.lon": "Londres",
   "city.rak": "Marraquexe",
