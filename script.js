@@ -103,7 +103,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // Book orders — emailed via FormSubmit (static site, no backend).
 const PRICE = 25;
-const ORDER_TO = "juan.correia@gmail.com";
+const ORDER_TO = "98dd3cd53cd627c99fa2ed2dc9fe0bdc"; // FormSubmit alias
 const ORDER_MSG = {
   en: { missing: "Please fill in your name and a valid email.", sending: "Sending…",
         ok: "Thank you! Your order was sent — I'll get back to you shortly.",
@@ -146,6 +146,7 @@ form.addEventListener("submit", async e => {
   try {
     const res = await fetch("https://formsubmit.co/ajax/" + ORDER_TO, {
       method: "POST",
+      signal: AbortSignal.timeout(30000),
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         ...data,
