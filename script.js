@@ -18,7 +18,7 @@ const PT = {
   "stats.years": "anos em software de gestão",
   "stats.markets": "mercados internacionais geridos",
   "stats.teaching": "anos de docência na UAlg",
-  "stats.qren": "projetos QREN de inovação aprovados",
+  "stats.qren": "projetos financiados aprovados — 5 QREN + 5 PRR",
   "role.ceo": "Chief Executive Officer",
   "role.ceo.d": "Lidera o grupo Host: estratégia, crescimento e direção de produto em tecnologia de gestão hoteleira — PMS, pagamentos integrados e a plataforma de formação Host Campus.",
   "role.cfo.d": "Liderança financeira do grupo.",
