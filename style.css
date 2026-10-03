@@ -65,7 +65,7 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
 .hero {
   padding: 96px 0 56px;
-  display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: center;
+  display: grid; grid-template-columns: 1fr 190px; gap: 48px; align-items: center;
 }
 .hero-text { grid-row: 1; grid-column: 1; }
 .portrait {
@@ -177,7 +177,7 @@ a.card:hover { border-color: var(--accent); }
   .topbar nav { display: none; }
   .topbar { justify-content: space-between; }
   .hero { padding: 40px 0 40px; grid-template-columns: 1fr; gap: 28px; }
-  .portrait { grid-column: 1; width: 120px; }
+  .portrait { grid-column: 1; width: 96px; }
   .hero-text { grid-row: 2; }
   .lede { font-size: 17px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
