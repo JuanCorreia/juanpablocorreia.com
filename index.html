@@ -128,14 +128,51 @@
 
   <section id="writing" class="block">
     <h2 data-i18n="nav.writing">Writing</h2>
-    <div class="book">
-      <div class="book-cover" aria-hidden="true"><span>A Primeira Venda do Resto da Tua Vida</span></div>
-      <div>
+    <article class="book">
+      <img class="book-cover" src="book-cover.jpg" width="700" height="993" alt="Capa — A Primeira Venda do Resto da Tua Vida!" loading="lazy">
+      <div class="book-body">
         <span class="tag" data-i18n="book.tag">Book · Author</span>
-        <h3>A Primeira Venda do Resto da Tua Vida</h3>
-        <p data-i18n="book.d">A practical guide for anyone starting in sales from scratch — what it really takes to make your very first sale, and the habits that carry you through every sale after it.</p>
+        <h3>A Primeira Venda do Resto da Tua Vida!</h3>
+        <p class="book-sub" data-i18n="book.sub">What to know before you start · How to start well · Actions to take and mistakes to avoid</p>
+        <p data-i18n="book.d">A practical guide, in Portuguese, for anyone starting a career in sales and not knowing where to begin — whether as a freelancer, inside a company, or selling property at weekends. Written on the weekly train between the Algarve and Lisbon, it distils years of selling, recruiting and training sales teams into actions you can apply straight away.</p>
+        <ol class="chapters">
+          <li data-i18n="book.c1">Preparing for the interview</li>
+          <li data-i18n="book.c2">The first day</li>
+          <li data-i18n="book.c3">The early days — prospecting, meetings, follow-up, closing</li>
+          <li data-i18n="book.c4">Sales compensation</li>
+          <li data-i18n="book.c5">Sales leadership</li>
+          <li data-i18n="book.c6">The mindset</li>
+        </ol>
+        <blockquote class="book-quote">“O maior valor da vida não é o que obténs, mas sim no que te transformas.” <cite>— Jim Rohn</cite></blockquote>
+        <div class="cta">
+          <button type="button" class="btn primary" data-order data-i18n="order.cta">Order now</button>
+          <span class="book-meta" data-i18n="book.meta">Portuguese · 6 chapters · 93 pages</span>
+        </div>
       </div>
-    </div>
+    </article>
+
+    <dialog class="order" id="order" aria-labelledby="order-title">
+      <form class="order-form" novalidate>
+        <header>
+          <h3 id="order-title" data-i18n="order.title">Order the book</h3>
+          <button type="button" class="x" data-close aria-label="Close">×</button>
+        </header>
+        <p class="order-lede" data-i18n="order.lede">Leave your details and I'll reply personally with price and delivery.</p>
+        <label><span data-i18n="order.name">Name</span><input name="name" autocomplete="name" required></label>
+        <label><span data-i18n="order.email">Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <div class="row">
+          <label><span data-i18n="order.phone">Phone (optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+          <label class="qty"><span data-i18n="order.qty">Copies</span><input name="copies" type="number" min="1" max="500" value="1" required></label>
+        </div>
+        <label><span data-i18n="order.msg">Message (optional)</span><textarea name="message" rows="3"></textarea></label>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="order-status" role="status" aria-live="polite"></p>
+        <div class="order-actions">
+          <button type="button" class="btn" data-close data-i18n="order.cancel">Cancel</button>
+          <button type="submit" class="btn primary" data-i18n="order.send">Send order</button>
+        </div>
+      </form>
+    </dialog>
     <ul class="edu pubs">
       <li><time>2020</time><div><h4>A case study on information search profiles of tourists visiting the Algarve</h4><p data-i18n="pub.tforum">Paper accepted at t-FORUM 2020</p></div></li>
     </ul>

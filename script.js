@@ -8,7 +8,25 @@ const PT = {
   "role.pres": "Presidente da Direção",
   "role.pres.d": "Lidera, em regime de voluntariado, uma Instituição Particular de Solidariedade Social (IPSS) com creche, educação pré-escolar e intervenção precoce na infância em Silves. Elaborou cinco candidaturas ao PRR — todas aprovadas — e conduziu a sua transformação digital com software de gestão feito à medida.",
   "book.tag": "Livro · Autor",
-  "book.d": "Um manual prático para quem quer começar nas vendas do zero — o que é preciso para fazer a primeira venda, e os hábitos que levam a todas as que vêm depois.",
+  "book.sub": "O que saber antes de começar · O que fazer para começar bem · Ações a realizar e erros a evitar",
+  "book.d": "Um guia prático para quem pretende iniciar a sua atividade comercial e não sabe por onde começar — seja como empresário em nome individual, numa estrutura corporativa ou a vender imóveis ao fim de semana. Escrito na viagem semanal de comboio entre o Algarve e Lisboa, reúne anos de vendas, recrutamento e formação de equipas comerciais em ações para pôr em prática de imediato.",
+  "book.c1": "Preparar-me para uma entrevista",
+  "book.c2": "O primeiro dia",
+  "book.c3": "Os primeiros tempos — prospeção, reunião, follow-up, fecho",
+  "book.c4": "Remuneração comercial",
+  "book.c5": "Liderança comercial",
+  "book.c6": "O mindset",
+  "book.meta": "Português · 6 capítulos · 93 páginas",
+  "order.cta": "Encomende já",
+  "order.title": "Encomendar o livro",
+  "order.lede": "Deixe os seus dados e eu respondo pessoalmente com o preço e a forma de entrega.",
+  "order.name": "Nome",
+  "order.email": "Email",
+  "order.phone": "Telefone (opcional)",
+  "order.qty": "Exemplares",
+  "order.msg": "Mensagem (opcional)",
+  "order.cancel": "Cancelar",
+  "order.send": "Enviar encomenda",
   "pub.tforum": "Artigo aceite no t-FORUM 2020",
   "print": "Imprimir / PDF",
   "present": "atual",
@@ -81,3 +99,61 @@ if (!initial) initial = (navigator.language || "").toLowerCase().startsWith("pt"
 setLang(initial);
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Book orders — emailed via FormSubmit (static site, no backend).
+const ORDER_TO = "juan.correia@gmail.com";
+const ORDER_MSG = {
+  en: { missing: "Please fill in your name and a valid email.", sending: "Sending…",
+        ok: "Thank you! Your order was sent — I'll get back to you shortly.",
+        err: "The order couldn't be sent right now. Please try again, or message me on LinkedIn." },
+  pt: { missing: "Preencha o nome e um email válido.", sending: "A enviar…",
+        ok: "Obrigado! A encomenda foi enviada — respondo em breve.",
+        err: "Não foi possível enviar a encomenda agora. Tente novamente ou envie-me mensagem no LinkedIn." }
+};
+const dlg = document.getElementById("order");
+const form = dlg.querySelector("form");
+const statusEl = form.querySelector(".order-status");
+const sendBtn = form.querySelector("[type=submit]");
+const msg = k => ORDER_MSG[document.documentElement.lang.startsWith("pt") ? "pt" : "en"][k];
+const setStatus = (text, cls) => { statusEl.textContent = text; statusEl.className = "order-status " + (cls || ""); };
+
+document.querySelectorAll("[data-order]").forEach(b => b.addEventListener("click", () => {
+  setStatus(""); sendBtn.hidden = false; dlg.showModal();
+}));
+dlg.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => dlg.close()));
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  let valid = true;
+  ["name", "email", "copies"].forEach(n => {
+    const ok = form.elements[n].checkValidity() && form.elements[n].value.trim() !== "";
+    form.elements[n].setAttribute("aria-invalid", String(!ok));
+    if (!ok) valid = false;
+  });
+  if (!valid) { setStatus(msg("missing"), "err"); form.querySelector("[aria-invalid=true]").focus(); return; }
+  if (form.elements._honey.value) return;
+
+  const data = Object.fromEntries(new FormData(form));
+  delete data._honey;
+  sendBtn.disabled = true; setStatus(msg("sending"));
+  try {
+    const res = await fetch("https://formsubmit.co/ajax/" + ORDER_TO, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        ...data,
+        _subject: "Encomenda — A Primeira Venda do Resto da Tua Vida (" + data.copies + ")",
+        _replyto: data.email,
+        _template: "table"
+      })
+    });
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok || String(out.success) !== "true") throw new Error();
+    setStatus(msg("ok"), "ok"); form.reset(); sendBtn.hidden = true;
+  } catch (err) {
+    setStatus(msg("err"), "err");
+  } finally {
+    sendBtn.disabled = false;
+  }
+});
